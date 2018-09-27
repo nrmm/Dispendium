@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{ mesRef.ano }} / {{ mesRef.mes }}</ion-title>
+
+    
+    <ion-buttons end *ngIf="itensSelecionados()">
+      <button ion-button icon-only (click)="removerItens()">
+        <ion-icon name="trash"></ion-icon>
+      </button>
+    </ion-buttons>
+  
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-fab bottom right>
+    <button ion-fab (click)="novaDespesa()">
+      <ion-icon name="add"></ion-icon>
+    </button>
+  </ion-fab>
+
+  <ion-list>
+    <ion-list-header text-end>
+      TOTAL: {{ formatarMoeda(total, true) }}
+    </ion-list-header>
+
+    <ion-item *ngIf="!despesas || despesas.length == 0" text-center>
+      Não há despesas cadastradas.
+    </ion-item>
+
+    <button ion-item *ngFor="let despesa of despesas"
+      (press)="selecionarItem(despesa)"
+      (tap)="removerSelecao(despesa)" 
+      [class]="itemSelecionado(despesa)? 'item item-block item-md item-selecionado' : 'item item-block item-md'">
+
+      <div class="item-note" item-top>
+        {{ despesa.dia }} / {{ mesRef.mes }}
+      </div>
+
+      {{ despesa.descricao }}
+      
+      <div class="item-note" item-right>
+        {{ formatarMoeda(despesa.valor) }}
+      </div>
+    </button>
+  </ion-list>
+</ion-content>

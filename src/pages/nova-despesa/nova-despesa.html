@@ -1,0 +1,35 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Nova despesa</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+        <ion-label floating>Dia</ion-label>
+        <ion-datetime
+          displayFormat="DD-MM-YYYY"
+          min="{{ mesRef.ano }}"
+          max="{{ mesRef.ano }}"
+          [(ngModel)]="dia">
+        </ion-datetime>
+    </ion-item>
+
+    <ion-item>
+        <ion-label floating>Descrição</ion-label>
+        <ion-input type="text" [(ngModel)]="descricao"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label floating>Valor</ion-label>
+        <ion-input type="number" [(ngModel)]="valor"></ion-input>
+    </ion-item>    
+  </ion-list>
+
+  <div padding>
+    <button block ion-button color="primary" (click)="cadastrarDespesa()">Incluir</button>
+  </div>
+</ion-content>

@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Despesas por Ano / Mês</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <button ion-item *ngFor="let mesRef of mesesRef" (click)="verMesReferencia(mesRef)">
+      {{ mesRef.ano }} / {{ mesRef.mes }}
+    </button>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,7 @@
+{
+  "name": "Dispendium",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}

@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, PopoverController } from 'ionic-angular';
 
+import { PopoverMenu } from './popover-menu';
 import { ListaDespesasPage } from '../lista-despesas/lista-despesas';
 
 import { MesRefProvider } from '../../providers/mes-ref/mes-ref';
@@ -17,6 +18,7 @@ export class ListaMesesReferenciaPage {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
+    public popoverCtrl: PopoverController,
     private mesRefProvider: MesRefProvider
   ) {
     this.getMesesReferencia();
@@ -33,5 +35,13 @@ export class ListaMesesReferenciaPage {
     this.mesRefProvider.getMesesReferencia().then((mesesRef: MesRef[]) => {
       this.mesesRef = mesesRef;
     });
+  }
+
+  exibirOpcoes(event): void {
+    let popover = this.popoverCtrl.create(PopoverMenu);
+    
+    popover.present({
+      ev: event
+    })
   }
 }

@@ -6,6 +6,7 @@ import { MyApp } from './app.component';
 
 import { ListaDespesasPage} from '../pages/lista-despesas/lista-despesas';
 import { ListaMesesReferenciaPage } from '../pages/lista-meses-referencia/lista-meses-referencia';
+import { PopoverMenu } from '../pages/lista-meses-referencia/popover-menu';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { MesRefProvider } from '../providers/mes-ref/mes-ref';
@@ -15,7 +16,8 @@ import { DespesaProvider } from '../providers/despesa/despesa';
   declarations: [
     MyApp,
     ListaDespesasPage,
-    ListaMesesReferenciaPage
+    ListaMesesReferenciaPage,
+    PopoverMenu
   ],
   imports: [
     BrowserModule,
@@ -29,7 +31,8 @@ import { DespesaProvider } from '../providers/despesa/despesa';
   entryComponents: [
     MyApp,
     ListaDespesasPage,
-    ListaMesesReferenciaPage
+    ListaMesesReferenciaPage,
+    PopoverMenu
   ],
   providers: [
     StatusBar,
